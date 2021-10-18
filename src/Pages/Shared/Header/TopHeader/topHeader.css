@@ -1,0 +1,10 @@
+.top-header{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+}
+@media only screen and (max-width:668px){
+    .top-header{
+        display:none;
+    }
+}
