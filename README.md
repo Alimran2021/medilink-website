@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Welcome to Medilink central hospital
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is medilink central hospital https://medilink-central-hospital.web.app/
 
 ## Available Scripts
 
