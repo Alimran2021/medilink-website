@@ -1,9 +1,9 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyDl7UUEBYajJsFVwA6IG9PHYEC0qOCbZbM",
-    authDomain: "medilink-central-hospital.firebaseapp.com",
-    projectId: "medilink-central-hospital",
-    storageBucket: "medilink-central-hospital.appspot.com",
-    messagingSenderId: "408590167983",
-    appId: "1:408590167983:web:d5a529aa0f1bbe15ac895a"
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 export default firebaseConfig

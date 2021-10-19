@@ -2,8 +2,13 @@ import React from 'react';
 import './login.css'
 import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../../hooks/useAuth/useAuth';
+import useFirebase from '../../../../hooks/useFirebase/useFirebase';
 
 const Login = () => {
+    const { error, emailHandler, passwordHandler, signInHandler, fbHandler, googleSignInHandler } = useFirebase()
+    // const { error, emailHandler, passwordHandler, signInHandler, fbHandler, googleSignInHandler } = useAuth()
+
     return (
         <div className="mb-8">
             <h2 className="text-center my-8">Login to medilink account</h2>
@@ -11,16 +16,16 @@ const Login = () => {
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label className="font-medium">Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Control onBlur={emailHandler} type="email" placeholder="Enter email" />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label className="font-medium">Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control onBlur={passwordHandler} type="password" placeholder="Password" />
+                        <p>{error}</p>
                     </Form.Group>
-                    <p>Forgot your password?</p>
-                    <Link to="/register">creat a new account?</Link>
-                    <Button className="w-80" variant="primary" type="submit">
+                    <Link className="text-decoration-none text-black" to="/register">Creat a new account?</Link>
+                    <Button onClick={signInHandler} className="w-80 mt-4" variant="primary" type="submit">
                         Login
                     </Button>
                 </Form>
@@ -30,8 +35,8 @@ const Login = () => {
                     <hr className="w-20" />
                 </div>
                 <div className="flex gap-2">
-                    <button className="px-10 py-2 border text-2xl text-white rounded fbBgColor"><i class="fab fa-facebook"></i></button>
-                    <button className="px-10 py-2 border text-2xl text-white rounded gglBgColor"><i class="fab fa-google-plus"></i></button>
+                    <button onClick={fbHandler} className="px-10 py-2 border text-2xl text-white rounded fbBgColor"><i class="fab fa-facebook"></i></button>
+                    <button onClick={googleSignInHandler} className="px-10 py-2 border text-2xl text-white rounded gglBgColor"><i class="fab fa-google-plus"></i></button>
                     <button className="px-10 py-2 border text-2xl text-white rounded gitBgColor"><i class="fab fa-github"></i></button>
                 </div>
 

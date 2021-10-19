@@ -4,8 +4,8 @@ import { Navbar } from 'react-bootstrap';
 
 const TopHeader = () => {
     return (
-        <div className="top-header">
-            <div>
+        <div className="top-header mx-8 my-3">
+            <div className="flex">
                 <Navbar.Brand href="#home"><img src="https://i.ibb.co/1bDzTfC/logo.png" alt="" /></Navbar.Brand>
             </div>
             <div className="flex gap-4">

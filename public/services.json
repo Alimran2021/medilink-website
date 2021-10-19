@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "serviceType": "Emergency Help 24/7",
+        "description": "Emergency help is always available at our Medilink Hospital.",
+        "photo": "https://demo.yolotheme.com/medilab/wp-content/uploads/2021/01/service08-570x385.jpg"
+    },
+    {
+        "id": 2,
+        "serviceType": "Residential Nursing Care",
+        "description": "Patients are treated with great respect by these hospitals and nurses.",
+        "photo": "https://demo.yolotheme.com/medilab/wp-content/uploads/2021/01/service06-570x385.jpg"
+    },
+    {
+        "id": 3,
+        "serviceType": "Physical Therapy Care",
+        "description": "Here patients are given physical therapy care along with medical .",
+        "photo": "https://demo.yolotheme.com/medilab/wp-content/uploads/2021/01/service02-570x385.jpg"
+    },
+    {
+        "id": 4,
+        "serviceType": "Blood Test Service",
+        "description": "Blood is tested by modern machines and is tested in a very sensitive way.",
+        "photo": "https://demo.yolotheme.com/medilab/wp-content/uploads/2021/01/service01-570x385.jpg"
+    },
+    {
+        "id": 5,
+        "serviceType": "Annual Wellness Exam",
+        "description": "After the patient recovers, each patient is examined annually so that everyone can stay healthy.",
+        "photo": "https://demo.yolotheme.com/medilab/wp-content/uploads/2021/01/service09-570x385.jpg"
+    },
+    {
+        "id": 6,
+        "serviceType": "Private Nursing",
+        "description": "Medilink Central Hospital and private nursing services come if you want",
+        "photo": "https://demo.yolotheme.com/medilab/wp-content/uploads/2020/12/service04-570x385.jpg"
+    }
+]

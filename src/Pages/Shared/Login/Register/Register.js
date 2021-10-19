@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import useFirebase from '../../../../hooks/useFirebase/useFirebase';
 
 const Register = () => {
-    const { nameHandler, emailHandler, passwordHandler, registerHandler } = useFirebase()
+    const { nameHandler, emailHandler, passwordHandler, registerHandler, fbHandler, googleSignInHandler } = useFirebase()
     return (
         <div className="mb-8">
             <h2 className="text-center my-8">Register your account?</h2>
@@ -23,9 +23,8 @@ const Register = () => {
                         <Form.Label className="font-medium">Password</Form.Label>
                         <Form.Control onBlur={passwordHandler} type="password" placeholder="Password" />
                     </Form.Group>
-                    <p>Forgot your password?</p>
-                    <Link to="/login">already you have an account?</Link>
-                    <Button onClick={registerHandler} className="w-80" variant="primary" type="submit">
+                    <Link className="text-decoration-none text-black" to="/login">Already you have an account?</Link>
+                    <Button onClick={registerHandler} className="w-80 mt-4" variant="primary" type="submit">
                         Register
                     </Button>
                 </Form>
@@ -35,8 +34,8 @@ const Register = () => {
                     <hr className="w-20" />
                 </div>
                 <div className="flex gap-2">
-                    <button className="px-10 py-2 border text-2xl text-white rounded fbBgColor"><i class="fab fa-facebook"></i></button>
-                    <button className="px-10 py-2 border text-2xl text-white rounded gglBgColor"><i class="fab fa-google-plus"></i></button>
+                    <button onClick={fbHandler} className="px-10 py-2 border text-2xl text-white rounded fbBgColor"><i class="fab fa-facebook"></i></button>
+                    <button onClick={googleSignInHandler} className="px-10 py-2 border text-2xl text-white rounded gglBgColor"><i class="fab fa-google-plus"></i></button>
                     <button className="px-10 py-2 border text-2xl text-white rounded gitBgColor"><i class="fab fa-github"></i></button>
                 </div>
 

@@ -1,9 +1,14 @@
 import React from 'react';
+import Banner from '../Banner/Banner';
+import Medilink from '../Medilink/Medilink';
+import Services from '../Services/Services';
 
 const Home = () => {
     return (
         <div>
-            <h1>hello home</h1>
+            <Banner />
+            <Medilink />
+            <Services />
         </div>
     );
 };
