@@ -17,27 +17,12 @@ const useFirebase = () => {
     const fbHandler = () => {
         signInWithPopup(auth, fbProvider)
             .then((result => {
-                const { displayName, email, photoURL } = result.user
-                const fbLogged = {
-                    name: displayName,
-                    email: email,
-                    img: photoURL
-                }
-
-                setUser(fbLogged)
+                setUser(result.user)
             }))
     }
     const googleSignInHandler = () => {
-        signInWithPopup(auth, googleProvider)
-            .then((result => {
-                const { displayName, email, photoURL } = result.user
-                const googleLogged = {
-                    name: displayName,
-                    email: email,
-                    img: photoURL
-                }
-                setUser(googleLogged)
-            }))
+        return signInWithPopup(auth, googleProvider)
+
     }
     const nameHandler = (e) => {
         e.preventDefault()
@@ -47,16 +32,18 @@ const useFirebase = () => {
     const getUserName = () => {
         updateProfile(auth.currentUser, { displayName: name })
             .then(() => {
-
+                setName(name)
             })
     }
     const emailHandler = (e) => {
         e.preventDefault()
         setEmail(e.target.value)
+        console.log(e.target.value)
     }
     const passwordHandler = (e) => {
         e.preventDefault()
         setPassword(e.target.value)
+        console.log(e.target.value)
     }
     const registerHandler = (e) => {
         e.preventDefault()
@@ -69,6 +56,9 @@ const useFirebase = () => {
             return
         }
         creatEmailPassword(email, password)
+        signInEmailPass(email, password)
+        console.log(email, password)
+
     }
     const signInHandler = (e) => {
         e.preventDefault()
@@ -78,7 +68,9 @@ const useFirebase = () => {
     useEffect(() => {
         onAuthStateChanged(auth, user => {
             if (user) {
-                console.log(user)
+                setUser(user)
+                setEmail(user)
+                setPassword(user)
             }
         })
     }, [])
@@ -88,19 +80,25 @@ const useFirebase = () => {
             .then((result => {
                 const user = result.user
                 console.log(user)
+                getUserName()
                 setError('')
             }))
             .catch(() => {
                 setError('This email already in use.')
             })
         console.log(email, password)
-        getUserName()
+
     }
     const signInEmailPass = (email, password) => {
         signInWithEmailAndPassword(auth, email, password)
             .then((result => {
+                setUser(result.user)
                 console.log(result.user)
+                setError('')
             }))
+            .catch(() => {
+                setError('alredy logined')
+            })
     }
     const logOutHandler = () => {
         signOut(auth)

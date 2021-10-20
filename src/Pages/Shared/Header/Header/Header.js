@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useFirebase from '../../../../hooks/useFirebase/useFirebase';
@@ -6,9 +5,10 @@ import { HashLink } from 'react-router-hash-link';
 import TopHeader from '../TopHeader/TopHeader';
 import logo from '../../../../image/medilink logo.png'
 
+
 const Header = () => {
-    const { email, user } = useFirebase()
-    console.log(user, email)
+    const { email, user, logOutHandler } = useFirebase()
+    console.log(user?.displayName, email)
     return (
         <div>
             {/* <TopHeader /> */}
@@ -23,17 +23,18 @@ const Header = () => {
                                 <Nav.Link as={HashLink} to="/home#services">Services</Nav.Link>
                                 <Nav.Link as={HashLink} to="/home#doctors">Doctors</Nav.Link>
                                 <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
-                                {user?.email ? <button className="bg-pink-500">Logout</button>
-                                    :
-                                    <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                                {user?.email ? <button onClick={logOutHandler} className="text-gray-400">Logout</button>
+                                    : < Nav.Link as={Link} to="/login">Login</Nav.Link>
                                 }
-                                <span className="text-pink-500">{user.name}</span>
+
                             </Nav>
                             <Nav>
                                 <Navbar.Collapse className="justify-content-end">
                                     <Navbar.Text>
-                                        {user?.email && <button className="bg-pink-500">Logout</button>}
-                                        Signed in as:
+
+                                        {user?.email && <div className="flex items-center"><span className="text-white block">{user?.displayName}</span>
+                                            <img className="ml-2 w-10 h-10 rounded-full" src={user?.photoURL} alt="" /></div>}
+
                                     </Navbar.Text>
                                 </Navbar.Collapse>
                             </Nav>
@@ -41,7 +42,7 @@ const Header = () => {
                     </Container>
                 </Navbar>
             </>
-        </div>
+        </div >
     );
 };
 

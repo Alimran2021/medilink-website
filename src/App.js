@@ -9,6 +9,7 @@ import Login from './Pages/Shared/Login/Login/Login';
 import Register from './Pages/Shared/Login/Register/Register';
 import ServiceDetail from './Pages/ServiceDetail/ServiceDetail';
 import AuthProvider from './context/AuthProvider/AuthProvider';
+import PrivateRoute from './Pages/Shared/Login/PrivateRoute/PrivateRoute';
 
 
 function App() {
@@ -23,9 +24,9 @@ function App() {
           <Route path="/home">
             <Home />
           </Route>
-          <Route path="/service/:serviceId">
+          <PrivateRoute path="/service/:serviceId">
             <ServiceDetail />
-          </Route>
+          </PrivateRoute>
           <Route path="/contact">
             <Contact />
           </Route>
