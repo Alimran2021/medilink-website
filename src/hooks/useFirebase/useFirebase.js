@@ -29,7 +29,6 @@ const useFirebase = () => {
     const nameHandler = (e) => {
         e.preventDefault()
         setName(e.target.value)
-        console.log(name)
     }
     const getUserName = () => {
         updateProfile(auth.currentUser, { displayName: name })
@@ -42,14 +41,12 @@ const useFirebase = () => {
     const emailHandler = (e) => {
         e.preventDefault()
         setEmail(e.target.value)
-        console.log(e.target.value)
         // history.push('/home')
     }
     // password input handler here
     const passwordHandler = (e) => {
         e.preventDefault()
         setPassword(e.target.value)
-        console.log(e.target.value)
     }
     // registerhandler here
     const registerHandler = (e) => {

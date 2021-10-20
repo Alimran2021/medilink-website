@@ -8,26 +8,26 @@ import useAuth from '../../../../hooks/useAuth/useAuth';
 
 const Login = () => {
     // useAuth destructuring here
-    const { error, emailHandler, passwordHandler, signInHandler, fbHandler, googleSignInHandler } = useAuth()
+    const { error, emailHandler, passwordHandler, fbHandler, googleSignInHandler } = useAuth()
     const location = useLocation()
     const history = useHistory()
     const location_url = location?.state?.from || '/home'
     // google handler here
     const googleLoginHandler = () => {
         googleSignInHandler()
-            .then((result => {
+            .then((() => {
                 history.push(location_url)
             }))
     }
     const facebookLoginHandler = () => {
         fbHandler()
-            .then((result => {
+            .then((() => {
                 history.push(location_url)
             }))
     }
     const eamilPassword = () => {
         emailHandler()
-            .then((result => {
+            .then((() => {
                 history.push(location_url)
             }))
     }

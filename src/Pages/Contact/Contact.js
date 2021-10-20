@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 const Contact = () => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 container my-20 gap-20">
