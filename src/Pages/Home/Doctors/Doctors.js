@@ -14,7 +14,7 @@ const Doctors = () => {
         <div id="doctors" className="my-20 container">
             <div className="my-20 text-center">
                 <p className="font-medium text-blue-600">Meet Our Team</p>
-                <h1 className="font-semibold team-style">Specialist Doctors</h1>
+                <h1 className="font-semibold team-style text-5xl">Specialist Doctors</h1>
             </div>
             <Row xs={1} md={4} className="g-4">
                 {

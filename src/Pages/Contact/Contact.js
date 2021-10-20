@@ -5,7 +5,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 container my-20 gap-20">
             <div>
                 <Form>
-                    <h1 className="fw-bold mb-20">Leave Us Message</h1>
+                    <h1 className="fw-bold mb-20 text-4xl">Leave Us Message</h1>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                         <Form.Label>Your Name</Form.Label>
                         <Form.Control type="email" placeholder="" />
@@ -26,7 +26,7 @@ const Contact = () => {
                 </Form>
             </div>
             <div>
-                <h2 className="mb-24 fw-bold">Address</h2>
+                <h2 className="mb-24 fw-bold text-4xl">Address</h2>
                 <span className="flex gap-3 items-center mb-4">
                     <i class="fas fa-map-marker fs-4 text-primary"></i>
                     <p className="mb-0">Medilink Technological Limited</p>
