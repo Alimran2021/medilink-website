@@ -10,35 +10,41 @@ import Register from './Pages/Shared/Login/Register/Register';
 import ServiceDetail from './Pages/ServiceDetail/ServiceDetail';
 import AuthProvider from './context/AuthProvider/AuthProvider';
 import PrivateRoute from './Pages/Shared/Login/PrivateRoute/PrivateRoute';
+import NotFound from './Pages/NotFound/NotFound'
 
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Header />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <PrivateRoute path="/service/:serviceId">
-            <ServiceDetail />
-          </PrivateRoute>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-        </Switch>
-        <Footer />
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Header />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/home">
+              <Home />
+            </Route>
+            <PrivateRoute path="/service/:serviceId">
+              <ServiceDetail />
+            </PrivateRoute>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/register">
+              <Register />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="*">
+              <NotFound />
+            </Route>
+          </Switch>
+          <Footer />
+        </Router>
+      </AuthProvider>
     </div>
   )
 }

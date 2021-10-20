@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Dr. Jason Roy",
+        "depertment": "Gynecology",
+        "photo": "https://radiustheme.com/demo/wordpress/themes/medilink/wp-content/uploads/2018/11/doctor-3-213x386.jpg"
+    },
+    {
+        "name": "Dr. Zinia Zara",
+        "depertment": "Neurology",
+        "photo": "https://radiustheme.com/demo/wordpress/themes/medilink/wp-content/uploads/2018/11/doctor-5-213x386.jpg"
+    },
+    {
+        "name": "Dr. Tina Rahman",
+        "depertment": "MBBS, M.D of Medicine",
+        "photo": "https://radiustheme.com/demo/wordpress/themes/medilink/wp-content/uploads/2018/11/doctor-1-213x386.jpg"
+    },
+    {
+        "name": "Dr. Maria",
+        "depertment": "Diabetes",
+        "photo": "https://radiustheme.com/demo/wordpress/themes/medilink/wp-content/uploads/2018/11/doctor-7-213x386.jpg"
+    }
+]

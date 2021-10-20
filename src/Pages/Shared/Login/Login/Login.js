@@ -4,24 +4,38 @@ import { useLocation, useHistory } from 'react-router';
 import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../../hooks/useAuth/useAuth';
-import useFirebase from '../../../../hooks/useFirebase/useFirebase';
+
 
 const Login = () => {
-    const { error, emailHandler, passwordHandler, signInHandler, fbHandler, googleSignInHandler } = useFirebase()
+    // useAuth destructuring here
+    const { error, emailHandler, passwordHandler, signInHandler, fbHandler, googleSignInHandler } = useAuth()
     const location = useLocation()
     const history = useHistory()
-    // const { error, emailHandler, passwordHandler, signInHandler, fbHandler, googleSignInHandler } = useAuth()
     const location_url = location?.state?.from || '/home'
+    // google handler here
     const googleLoginHandler = () => {
         googleSignInHandler()
             .then((result => {
                 history.push(location_url)
             }))
     }
+    const facebookLoginHandler = () => {
+        fbHandler()
+            .then((result => {
+                history.push(location_url)
+            }))
+    }
+    const eamilPassword = () => {
+        emailHandler()
+            .then((result => {
+                history.push(location_url)
+            }))
+    }
     return (
+        // login form start here
         <div className="mb-8">
             <h2 className="text-center my-8">Login to medilink account</h2>
-            <div className="w-96 border p-4 mx-auto rounded">
+            <div className="w-96 shadow-md bg-white p-4 mx-auto rounded">
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label className="font-medium">Email address</Form.Label>
@@ -30,11 +44,11 @@ const Login = () => {
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label className="font-medium">Password</Form.Label>
-                        <Form.Control onBlur={passwordHandler} type="password" placeholder="Password" noValidate />
-                        {/* <p>{error}</p> */}
+                        <Form.Control onBlur={passwordHandler} type="password" placeholder="Password" required />
+                        <p>{error}</p>
                     </Form.Group>
-                    <Link className="text-decoration-none text-black" to="/register">Creat a new account?</Link>
-                    <Button onClick={signInHandler} className="w-80 mt-4" variant="primary" type="submit">
+                    <Link className="text-decoration-none" to="/register">Creat a new account?</Link>
+                    <Button onClick={eamilPassword} className="w-80 mt-4" variant="primary" type="submit">
                         Login
                     </Button>
                 </Form>
@@ -44,7 +58,7 @@ const Login = () => {
                     <hr className="w-20" />
                 </div>
                 <div className="flex gap-2">
-                    <button onClick={fbHandler} className="px-10 py-2 border text-2xl text-white rounded fbBgColor"><i class="fab fa-facebook"></i></button>
+                    <button onClick={facebookLoginHandler} className="px-10 py-2 border text-2xl text-white rounded fbBgColor"><i class="fab fa-facebook"></i></button>
                     <button onClick={googleLoginHandler} className="px-10 py-2 border text-2xl text-white rounded gglBgColor"><i class="fab fa-google-plus"></i></button>
                     <button className="px-10 py-2 border text-2xl text-white rounded gitBgColor"><i class="fab fa-github"></i></button>
                 </div>

@@ -4,6 +4,7 @@ import {
     createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut
 } from "firebase/auth";
 import { useEffect, useState } from "react";
+
 initailizeAuthenticaion()
 const useFirebase = () => {
     const [user, setUser] = useState({})
@@ -14,16 +15,17 @@ const useFirebase = () => {
     const auth = getAuth()
     const fbProvider = new FacebookAuthProvider()
     const googleProvider = new GoogleAuthProvider()
+    // facebook login handler here
     const fbHandler = () => {
-        signInWithPopup(auth, fbProvider)
-            .then((result => {
-                setUser(result.user)
-            }))
+        return signInWithPopup(auth, fbProvider)
+
     }
+    // google login handler here
     const googleSignInHandler = () => {
         return signInWithPopup(auth, googleProvider)
 
     }
+    // name input handler here
     const nameHandler = (e) => {
         e.preventDefault()
         setName(e.target.value)
@@ -35,16 +37,21 @@ const useFirebase = () => {
                 setName(name)
             })
     }
+
+    // email input handler here
     const emailHandler = (e) => {
         e.preventDefault()
         setEmail(e.target.value)
         console.log(e.target.value)
+        // history.push('/home')
     }
+    // password input handler here
     const passwordHandler = (e) => {
         e.preventDefault()
         setPassword(e.target.value)
         console.log(e.target.value)
     }
+    // registerhandler here
     const registerHandler = (e) => {
         e.preventDefault()
         if (password.length < 6) {
@@ -60,8 +67,10 @@ const useFirebase = () => {
         console.log(email, password)
 
     }
+    // sign in handler here
     const signInHandler = (e) => {
         e.preventDefault()
+        console.log(email, password)
         signInEmailPass(email, password)
     }
 
@@ -75,31 +84,33 @@ const useFirebase = () => {
         })
     }, [])
 
+    // creat email and password area here
+
     const creatEmailPassword = (email, password) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((result => {
                 const user = result.user
                 console.log(user)
-                getUserName()
+                getUserName(name)
                 setError('')
+                window.location.reload()
             }))
             .catch(() => {
                 setError('This email already in use.')
             })
-        console.log(email, password)
-
     }
+    // sign in email password area here
     const signInEmailPass = (email, password) => {
         signInWithEmailAndPassword(auth, email, password)
             .then((result => {
                 setUser(result.user)
-                console.log(result.user)
                 setError('')
             }))
             .catch(() => {
                 setError('alredy logined')
             })
     }
+    // logout handler here
     const logOutHandler = () => {
         signOut(auth)
             .then(() => {

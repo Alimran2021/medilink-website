@@ -1,14 +1,17 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import useFirebase from '../../../../hooks/useFirebase/useFirebase';
+import useAuth from '../../../../hooks/useAuth/useAuth';
+
 
 const Register = () => {
-    const { nameHandler, emailHandler, passwordHandler, registerHandler, fbHandler, googleSignInHandler } = useFirebase()
+    // useAuth destructuring here
+    const { nameHandler, emailHandler, passwordHandler, registerHandler, fbHandler, googleSignInHandler } = useAuth()
     return (
+        // register form start here
         <div className="mb-8">
             <h2 className="text-center my-8">Register your account?</h2>
-            <div className="w-96 border p-4 mx-auto rounded">
+            <div className="w-96 shadow-md bg-white p-4 mx-auto rounded">
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label className="font-medium">Name</Form.Label>
@@ -23,7 +26,7 @@ const Register = () => {
                         <Form.Label className="font-medium">Password</Form.Label>
                         <Form.Control onBlur={passwordHandler} type="password" placeholder="Password" />
                     </Form.Group>
-                    <Link className="text-decoration-none text-black" to="/login">Already you have an account?</Link>
+                    <Link className="text-decoration-none" to="/login">Already you have an account?</Link>
                     <Button onClick={registerHandler} className="w-80 mt-4" variant="primary" type="submit">
                         Register
                     </Button>

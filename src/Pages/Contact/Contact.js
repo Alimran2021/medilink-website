@@ -12,7 +12,7 @@ const Contact = () => {
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                         <Form.Label>Your Email</Form.Label>
-                        <Form.Control className="bg-gray-500" type="email" placeholder="" />
+                        <Form.Control type="email" placeholder="" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                         <Form.Label>Subject</Form.Label>

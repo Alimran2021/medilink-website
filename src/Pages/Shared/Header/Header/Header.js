@@ -1,16 +1,16 @@
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import useFirebase from '../../../../hooks/useFirebase/useFirebase';
 import { HashLink } from 'react-router-hash-link';
-import TopHeader from '../TopHeader/TopHeader';
 import logo from '../../../../image/medilink logo.png'
+import useAuth from '../../../../hooks/useAuth/useAuth';
 
 
 const Header = () => {
-    const { email, user, logOutHandler } = useFirebase()
+    const { email, user, logOutHandler } = useAuth()
     console.log(user?.displayName, email)
     return (
-        <div>
+        // header start here
+        <div className="sticky top-0 z-10">
             {/* <TopHeader /> */}
             <>
                 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">

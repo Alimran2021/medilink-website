@@ -2,11 +2,9 @@ import { Row } from 'react-bootstrap';
 import useServices from '../../../hooks/useServices/useServices';
 import Service from '../Service/Service';
 
-
-
+// services area here
 const Services = () => {
     const services = useServices()
-    console.log(services.length)
     return (
         <div id="services" className="my-8 container mt-20">
             <h1 className="text-center fw-bold mb-8">Oure Latest Services</h1>

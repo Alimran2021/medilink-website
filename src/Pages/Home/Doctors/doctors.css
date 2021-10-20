@@ -1,0 +1,10 @@
+.team-style::after{
+    content: '';
+    color:red;
+    width:10px;
+    height: 4px;
+    display:table;
+    clear: both;
+    top:0;
+    left:o
+}
